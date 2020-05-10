@@ -1,0 +1,23 @@
+{
+  "name": "tensorschool2020",
+  "version": "1.0.0",
+  "description": "Your first homework sample",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Flanker72/TensorSchool2020.git"
+  },
+  "author": "Yuri A Taranov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Flanker72/TensorSchool2020/issues"
+  },
+  "homepage": "https://github.com/Flanker72/TensorSchool2020#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

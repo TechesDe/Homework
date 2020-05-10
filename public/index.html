@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <title>Tensor School</title>
+        <link rel="stylesheet" href="css/css.css">
+        <script>
+        
+        class Student {
+            self=this;
+            constructor(params)
+            {
+                this.fullname=params.fullname;
+                this.university=params.university;
+                this.course=params.course;
+                this.birthday=params.birthDate;
+                this.photo=params.photoUrl;
+            }
+            get birthDateStr() {
+                return(string(this.birthday));
+            }
+            
+        }
+        
+        function deleteFather(element)//Пытался удалить карточку по нажатию на cross, не вышло, обясните пж 
+        {
+            element.remove();
+        }
+
+        function onClick(element,targ)
+        {
+            let cross=document.createElement('div');
+            let txt=document.createTextNode('&#10006;');//тут должен быть крестик но почему то он его не читает
+            cross.append(txt);
+            let name=document.createElement('h2');
+            name.append(element.fullname);
+            let brstinfo=document.createElement('p');
+            brstinfo.append(`День рождения: ${element.birthday.getUTCDate()}.${element.birthday.getUTCMonth()}.${element.birthday.getUTCFullYear()},${/*Date().getYear()-element.birthday.getYear()*/1} лет`) //пытался методом класса сделать не вышло, попытался тут тоже не вышло, как работает Date() и какие есть поля и методы?!
+            let edu=document.createElement('p');
+            edu.append(`Учится\t${element.university}, ${element.course} Курс`);
+            let div=document.createElement('div');
+            let div2=document.createElement('div');
+            let img = new Image();
+            img.src=element.photo;
+            img.setAttribute('id','cartimg')
+            div.setAttribute('class','carto4ka');
+            div2.appendChild(cross);
+            div2.appendChild(name);
+            div2.appendChild(brstinfo);
+            div2.appendChild(edu);
+            div.appendChild(div2);
+            div.appendChild(img);
+            targ.appendChild(div);
+            cliceble=false;
+            return div;
+        }
+
+        function appendStudentBlock(student)
+        {
+            let img = new Image();
+            img.src=student.photo;
+            let name=document.createElement('p')
+            name.append(student.fullname);
+            let kyrs=document.createElement('p')
+            kyrs.append(`${student.university} ${student.course}`);
+            kyrs.setAttribute('id','sheer');
+            let div=document.createElement('div');
+            div.appendChild(img);
+            div.appendChild(name);
+            div.appendChild(kyrs);
+            div.setAttribute('class','Banner');
+            
+            document.getElementById('Users').append(div);
+            div.addEventListener('click',onClick);
+            return div;
+        }
+
+        function init(){
+            const studentArr= [
+                {
+                    fullname: 'Маша Иванова',
+                    university: 'УГАТУ',
+                    course: 2,
+                    birthDate: new Date(2000,1,2),
+                    photoUrl:'/images/ava01.jpg'
+                },
+                {
+                    fullname: 'Павел',
+                    university: 'ПТУ',
+                    course: 1,
+                    birthDate: new Date(2000,3,7),
+                    photoUrl:'/images/ava02.jpg'
+                },
+                {
+                    fullname: 'Кирилл',
+                    university: 'КГТУ',
+                    course: 5,
+                    birthDate: new Date(2000,6,5),
+                    photoUrl:'/images/ava03.jpg'
+                }
+                ]
+                studentArr.forEach((item)=>{
+                    const student = new Student(item);
+                    const studentBlock = appendStudentBlock(student);
+                    studentBlock.addEventListener('click',(event) => {onClick(student,event.currentTarget)});//event это что и откуда он взялся?!
+                    //Как отследить чтобы создавалась одна, пытался через bool переменную, но не работает
+                });
+        }
+        </script>
+    </head>
+    <body onload="init();">
+        <header >
+            <img src="images/logo.jpg" alt="Логотип" id="logos">
+            <span>Tensor School</span>
+        </header>
+        <div class="info">
+            <p>Надпись &#10006;</p><!--А тут читает-->
+        </div>
+        <div id="Users"></div>
+    </body>
+</html>
