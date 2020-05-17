@@ -1,0 +1,80 @@
+body
+{
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+header span
+{
+    font-size: 30px;
+}
+header span:after
+{
+    content: '';
+    border-top: 3px solid black;
+    display: block;
+    width: 100px;
+    margin: 10px auto;
+    
+}
+div .Banner
+{
+    display: inline-block;
+    margin: 25px;
+}
+#Users
+{
+    max-width: 1000px; 
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+div .Banner img
+{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    
+}
+.Banner p
+{
+    margin: 0px;
+}
+div .Banner img:hover
+{
+    background: black;
+    box-shadow: 0px 0px 10px 10px gray;
+}
+#sheer
+{
+    color: gray;
+    margin: 0px;
+}
+
+#logos
+{
+    height: 30px;
+}
+
+.carto4ka
+{
+    display: flex;
+    text-align: left;
+    border: 3px;
+    box-shadow: 0px 0px 10px 10px gray;
+}
+.carto4ka div
+{
+    margin: 10px;
+}
+.carto4ka div div
+{
+
+    text-align: right;
+}
+#cartimg
+{
+    margin: 10px;
+    border-radius: 10%;
+}
